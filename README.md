@@ -206,7 +206,7 @@ git push origin --delete <nome_da_tag>
 
 - Um Pull Request (PR) é uma proposta de integração de código. Ele serve como um checkpoint para revisão e aprovação antes do merge, garantindo qualidade e alinhamento com o projeto.
   
-<img src="https://visualpharm.com/assets/282/Pull%20Request-595b40b85ba036ed117da1d1.svg" alt="pull request image" width="300" height="200">
+<img src="./images/imagem-Pull-Request.png" alt="pull request image" width="300" height="200">
 
 No fluxo GitFlow, PRs são usados para integrar branches feature, hotfix ou release na develop ou main, permitindo discussões, revisões e resolução de conflitos antes da fusão
 
@@ -236,7 +236,7 @@ gh pr merge<ID_do_PR> --squash --delet-branch
 ---
 
 # Como funciona o git flow
-![imagem do git flow](./git-flow.png)
+![imagem do git flow](./images/WhatsApp%20Image%202025-03-22%20at%2018.51.11.jpeg)
 
 Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho em equipe. As principais branches são:
 
