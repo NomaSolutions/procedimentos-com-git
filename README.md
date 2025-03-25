@@ -3,25 +3,25 @@
 ---
 
 # Sumário
-- 1. Clonar repositório [clique aqui](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit--adiciona-login-ou-adiciona-crud)
-- 2. Configurar usuário [clique aqui](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
-- 3. Mudar de branch [clique aqui](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
-- 4. Criar nova branch [clique aqui](#4-para-criar-uma-branch-nova)
-- 5. Adicionar arquivos ao staging [clique aqui](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
-- 6. Fazer o commit [clique aqui](#6-agora-devemos-fazer-o-commit-com)
-- 7. Subir o commit para o repositório remoto [clique aqui](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
-- 8. Puxar mudanças do repositório remoto [clique aqui](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
-- 9. Deleter o último commit [clique aqui](#9-para-deletar-o-último-commit)
-- 10. Conferir status dos arquivos [clique aqui](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-arquivos-novos-que-não-estão-rastreados)
-- 11. Ver a diferença do que foi commitado e o que não foi commitado [clique aqui](#11-para-ver-as-diferenças-não-commitadas)
-- 12. Ver o histórico de commits [clique aqui](#12-para-conferir-o-histórico-de-commits)
-- 13. Aazer o merge [clique aqui](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
-- 14. Atualizar a feature com git rebase [clique aqui](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature--e-depois)
-- 15. Deletar uma branch [clique aqui](#15-depois-de-dar-merge-podemos-deletar-a-brach)
-- 16. Marcar o commit com tag [clique aqui](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
-- 17. Pull Request [clique aqui](#17-pull-request)
-
-- 18. Como funciona o gitflow [clique aqui](#como-funciona-o-git-flow)
+- 1.  [Clonar repositório](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit--adiciona-login-ou-adiciona-crud)
+- 2.  [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
+- 3.  [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
+- 4.  [Criar nova branch](#4-para-criar-uma-branch-nova)
+- 5.  [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
+- 6.  [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
+- 7.  [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
+- 8.  [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
+- 9.  [Deleter o último commit](#9-para-deletar-o-último-commit)
+- 10.  [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-arquivos-novos-que-não-estão-rastreados)
+- 11.  [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
+- 12.  [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
+- 13.  [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
+- 14.  [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature--e-depois)
+- 15.  [Deletar uma branch](#15-depois-de-dar-merge-podemos-deletar-a-brach)
+- 16.  [Marcar o commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
+- 17.  [Pull Request](#17-pull-request)
+- 18.  [Hotfix](#18-hotfix)
+- 19.  [Como funciona o gitflow](#como-funciona-o-git-flow)
 ---
 
 # Convenções
@@ -32,7 +32,11 @@
 ### 4. Evitar fazer commits gigantes
 ### 5. Evitar fazer branches gigantes (os pontos 4 e 5 são para não termos que resolver conflitos gigantes e melhorar na hora de revisão)
 ### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
-### 7. Use Pull Requests (PRs) com Inteligência. Descreva o PR: Inclua o propósito, o que foi feito e como testar. Adicione revisores: Garanta que o time revise antes do merge. Teste antes de submeter: Certifique-se de que o código compila e os testes passam. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 7. Use Pull Requests (PRs) com Inteligência.
+- Descreva o PR incluindo o propósito, o que foi feito e como testar.
+- Adicione revisores garantindo que o time revise antes do merge.
+- Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+- Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
 
 
 ---
@@ -56,10 +60,11 @@ git remote add origin <URL_do_repositório_remoto>
 - OBS: **Não** inicialize o repositório remoto com README ou outros arquivos se você já tem um repositório local, para evitar conflitos. Apenas crie um repositório vazio.
 
 ### 2. Agora devemos fazer a configuração do seu usuário e email para identificar os commits que faremos mais adiante:
+- inserindo seu nome
 ```
 git config --global user.name "<seu_nome>"
 ```
-- e
+- inserindo seu email
 ```
 git config --global user.email "<seu_email>"
 ```
@@ -90,7 +95,7 @@ git switch -c <nome_da_branch>
 git branch
 ```
 
-### 5. Depois de estar na branch certa podemos codar ou refatorar o código para salvar as alterações devemos adicionar os arquivos ao "staging" com:
+### 5. Depois de estar na branch certa podemos codar ou refatorar o código. Para salvar as alterações devemos adicionar os arquivos ao "staging" com:
 ```
 git add <nome_do_arquivo>
 ```
@@ -130,10 +135,11 @@ git fetch
 ```
 git reset --soft HEAD~1
 ```
-- No caso acima ele apaga o último commit porém mantém as alterações no staging, então elas podem ser commitadas novamente, já se quiser apagar completamente o commit e as alterações do staging, use: 
+- No caso acima ele apaga o último commit porém mantém as alterações no staging, ou seja, as alterações feitas são mantidas podendo ser commitadas novamente, já se quiser apagar completamente o commit use: 
 ```
 git reset --hard HEAD~1
 ```
+- Isso deleta o commit e apaga as alterações que estavam no staging, ou seja, tudo que foi criado / atualizado nesse commit é desfeito.
 
 ### 10. Para conferir o status dos arquivos (o que está em stage para ser commitado, os arquivos que foram modificados, arquivos novos que não estão rastreados):
 ```
@@ -154,7 +160,7 @@ git log
 ```
 git merge feature/<nome_da_feature>
 ```
-### 14. Uma opção também é o git rebase, que ao invés de fazer um merge comum, você atualiza a feature com os commits mais recentes da develop, evitando merge commits desnecessários e organizando melhor o histórico de commits, então vá para a branch feature com ```git checkout feature ``` e depois:
+### 14. Uma opção também é o git rebase, que ao invés de fazer um merge comum, você atualiza a feature com os commits mais recentes da develop, evitando merge commits desnecessários e organizando melhor o histórico de commits, então vá para a branch feature com ```git checkout feature``` e depois:
 ```
 git rebase <nome_da_develop>
 ```
@@ -206,7 +212,7 @@ git push origin --delete <nome_da_tag>
 
 - Um Pull Request (PR) é uma proposta de integração de código. Ele serve como um checkpoint para revisão e aprovação antes do merge, garantindo qualidade e alinhamento com o projeto.
   
-<img src="./images/imagem-Pull-Request.png" alt="pull request image" width="300" height="200">
+<img src="./images/imagem-Pull-Request.png" alt="pull request image" width="100" height="100">
 
 No fluxo GitFlow, PRs são usados para integrar branches feature, hotfix ou release na develop ou main, permitindo discussões, revisões e resolução de conflitos antes da fusão
 
@@ -229,8 +235,28 @@ gh review <ID_do_PR> --approve
 ```
 gh pr merge<ID_do_PR> --squash --delet-branch
 ```
+### 18. Hotfix
 
+- O Hotfix será usado para corrigir erros críticos encontrados em produção. Ele permite resolver rapidamente um problema sem interromper o fluxo de desenvolvimento.
 
+- Para iniciar uma hotfix devemos criar a branch que sairá da main:
+
+- Ir para a branch main
+```
+git checkout main
+```
+- Trazer a main para o repositório local
+```
+git pull origin main
+```
+- E então criamos a hotfix ja entrando nela
+```
+git checkout -b hotfix/<descrição_do_erro>
+```
+- Com o erro / falha corrigido, subimos as alteraçõs e depois devemos aplicar a correção diretamente na main e na develop.
+- Nesse processo, todo merge feito deve ser marcado com tag (processo passado anteriormente na sessão 16 [marcar commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com))
+
+- OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não há a necessidade de utilizarmos a branch hotfix.
 ---
 
 ---
