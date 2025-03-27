@@ -5,22 +5,22 @@
 # Sumário
 1. [Convenções](#convenções)
 2. [Comandos](#comandos)
-    1.  [Clonar repositório](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit--adiciona-login-ou-adiciona-crud)
-    2.  [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
-    3.  [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
-    4.  [Criar nova branch](#4-para-criar-uma-branch-nova)
-    5.  [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
-    6.  [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
-    7.  [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
-    8.  [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
-    9.  [Deleter o último commit](#9-para-deletar-o-último-commit)
-    10.  [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-arquivos-novos-que-não-estão-rastreados)
-    11.  [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
-    12.  [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
-    13.  [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
-    14.  [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature--e-depois)
-    15.  [Deletar uma branch](#15-depois-de-dar-merge-podemos-deletar-a-brach)
-    16.  [Marcar o commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
+    - [Clonar repositório](#1a-primeira-coisa-a-se-fazer-é-clonar-o-repositório-na-sua-máquina-para-fazer-isso-é-só-escrever-os-seguintes-comandos-no-terminal)
+    - [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
+    - [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
+    - [Criar nova branch](#4-para-criar-uma-branch-nova)
+    - [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
+    - [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
+    - [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
+    - [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
+    - [Deleter o último commit](#9-para-deletar-o-último-commit)
+    - [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-e-arquivos-novos-que-não-estão-rastreados)
+    - [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
+    - [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
+    - [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
+    - [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature-e-depois)
+    - [Deletar uma branch](#15-depois-de-dar-merge-podemos-deletar-a-brach)
+    - [Marcar o commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
 3.  [Como funciona o gitflow](#como-funciona-o-git-flow)
 4. [Tabela comparativa comandos git X comandos da CLI git flow](#tabela-comparativa-comandos-básicos-do-git-x-comandos-do-cli)
 5. [Pull Request](#pull-request)
@@ -71,7 +71,7 @@ git config --global user.name "<seu_nome>"
 git config --global user.email "<seu_email>"
 ```
 
-### 3. Depois devemos mudar para a branch a qual vamos trabalhar 
+### 3. Depois devemos mudar para a branch a qual vamos trabalhar: 
 ```
 git checkout <nome_da_branch>
 ```
@@ -80,7 +80,7 @@ git checkout <nome_da_branch>
 git switch <nome_da_branch>
 ```
 
-### 4. Para criar uma branch nova:
+### 4. Para criar uma nova branch:
 ```
 git branch <nome_da_branch>
 ```
@@ -124,7 +124,7 @@ git commit -m "<mensagem curta>" -m "<descrição longa>"
 git push origin <nome da branch>
 ```
 
-### 8. Para puxar possíveis mudanças no repositório remoto utilize:
+### 8. Para puxar possíveis mudanças do repositório remoto utilize:
 ```
 git pull origin <nome_da_branch>
 ```
@@ -143,10 +143,11 @@ git reset --hard HEAD~1
 ```
 - Isso deleta o commit e apaga as alterações que estavam no staging, ou seja, tudo que foi criado / atualizado nesse commit é desfeito.
 
-### 10. Para conferir o status dos arquivos (o que está em stage para ser commitado, os arquivos que foram modificados, arquivos novos que não estão rastreados):
+### 10. Para conferir o status dos arquivos (o que está em stage para ser commitado, os arquivos que foram modificados e arquivos novos que não estão rastreados):
 ```
 git status
 ```
+- Dica: é melhor de ver essas diferenças pela própria interface do Vs Códigos
 
 ### 11. Para ver as diferenças não commitadas:
 ```
@@ -214,7 +215,7 @@ git push origin --delete <nome_da_tag>
 ---
 
 # Como funciona o git flow
-![imagem do git flow](./images/WhatsApp%20Image%202025-03-22%20at%2018.51.11.jpeg)
+![imagem do git flow](./images/Git-flow.jpeg)
 
 Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho em equipe. As principais branches são:
 
@@ -266,7 +267,7 @@ caso não tenha ficado muito claro, como funciona o gitFlow veja o [artigo da al
 
 - Um Pull Request (PR) é uma proposta de integração de código. Ele serve como um checkpoint para revisão e aprovação antes do merge, garantindo qualidade e alinhamento com o projeto.
   
-<img src="./images/imagem-Pull-Request.png" alt="pull request image" width="100" height="100">
+![fluxograma do pull request](./images/Fluxograma-Pull-Request.jpeg)
 
 No fluxo GitFlow, PRs são usados para integrar branches feature, hotfix ou release na develop ou main, permitindo discussões, revisões e resolução de conflitos antes da fusão
 
