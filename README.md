@@ -31,11 +31,11 @@
 
 ### 1. Fazer commits com mensagens de fato descritivas, usando o tempo verbal no imperativo como: "adicionA-login" ou "corrigE-erro-no-crud" para lermos: "**esse commit** ... adiciona login ou adiciona crud"
 ### 2. Proibido fazer ```git commit -m "."``` ou 'git commit -m " :pray: " ' ou qualquer coisa do tipo
-### 3. Estaremos utilizando o git flow para ver como funciona o fluxo do git flow [clique aqui](#como-funciona-o-git-flow):
-### 4. Evitar fazer commits gigantes
-### 5. Evitar fazer branches gigantes (os pontos 4 e 5 são para não termos que resolver conflitos gigantes e melhorar na hora de revisão)
+### 3. Estaremos utilizando o git flow, para ver como funciona o git flow [clique aqui](#como-funciona-o-git-flow)
+### 4. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
+### 5. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
 ### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
-## Convenções sobre PRs
+## Convenções sobre [Pull Requests](#pull-request)
 ### 7. Descreva o PR incluindo o propósito, o que foi feito e como testar.
 ### 8. Adicione revisores garantindo que o time revise antes do merge.
 ### 9. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
