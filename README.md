@@ -31,15 +31,16 @@
 
 ### 1. Fazer commits com mensagens de fato descritivas, usando o tempo verbal no imperativo como: "adicionA-login" ou "corrigE-erro-no-crud" para lermos: "**esse commit** ... adiciona login ou adiciona crud"
 ### 2. Proibido fazer ```git commit -m "."``` ou 'git commit -m " :pray: " ' ou qualquer coisa do tipo
-### 3. Estaremos utilizando o git flow, para ver como funciona o git flow [clique aqui](#como-funciona-o-git-flow)
-### 4. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
-### 5. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
-### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
+### 3. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
+### 4. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
+### 5. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
+### 6. Na nossa equipe utilizaremos o git flow, para ver como ele funciona [clique aqui](#como-funciona-o-git-flow)
+### 7. Não criar branches hotfix explicado [aqui](#obs-na-nossa-equipe-iremos-considerar-o-uso-de-um-hotfix-como-desleixo-e-falta-de-preparo-pois-estamos-desenvolvendo-algo-voltado-à-escola-de-ti-e-não-temos-usuários-utilizando-a-versão-de-produção-então-não-utilizaremos-a-branch-hotfix)
 ## Convenções sobre [Pull Requests](#pull-request)
-### 7. Descreva o PR incluindo o propósito, o que foi feito e como testar.
-### 8. Adicione revisores garantindo que o time revise antes do merge.
-### 9. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
-### 10. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 8. Descreva o PR incluindo o propósito, o que foi feito e como testar.
+### 9. Adicione revisores garantindo que o time revise antes do merge.
+### 10. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+### 11. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
 
 ---
 
@@ -261,7 +262,7 @@ Dica: Sempre comece entendendo o estado atual do repositório com git branch ou 
 - as **branches release** (não pode haver mais de uma branch desse tipo simultaneamente) saem da branch develop e servem para testar e corrigir uma nova versão a ser lançada, quando finalizar esse processo ela será mergeada tanto na main, gerando uma nova tag de versão, quanto na develop
 - por último as **branches hotfix**, que servem para consertar erros críticos em produção, saem da branch main e são mergeados tanto na main gerando uma nova tag ([comandos para gerar tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)) quanto na develop.
 
-- OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
+#### OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
 
 caso ainda possua dúvidas sobre o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
 
