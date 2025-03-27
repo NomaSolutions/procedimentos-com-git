@@ -9,13 +9,13 @@
     - [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
     - [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
     - [Criar nova branch](#4-para-criar-uma-branch-nova)
-    - [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
+    - [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-preparar-as-alterações-para-o-próximo-commit-devemos-adicionar-os-arquivos-ao-staging-com)
     - [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
     - [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
     - [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
-    - [Deleter o último commit](#9-para-deletar-o-último-commit)
+    - [Deletar o último commit](#9-para-deletar-o-último-commit)
     - [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-e-arquivos-novos-que-não-estão-rastreados)
-    - [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
+    - [Ver a diferença entre dois conjuntos de dados no repositório (git diff)](#11-para-exibir-as-mudanças-que-ainda-não-foram-preparadas-para-o-commit)
     - [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
     - [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
     - [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature-e-depois)
@@ -47,7 +47,7 @@
 
 ### 1.	A primeira coisa a se fazer é clonar o repositório na sua máquina, para fazer isso é só escrever os seguintes comandos no terminal: 
 
-- clonar o repositório:
+- Clonar o repositório:
 ```
 git clone <url-do-repositório> 
 ```
@@ -62,11 +62,11 @@ git remote add origin <URL_do_repositório_remoto>
 - OBS: **Não** inicialize o repositório remoto com README ou outros arquivos se você já tem um repositório local, para evitar conflitos. Apenas crie um repositório vazio.
 
 ### 2. Agora devemos fazer a configuração do seu usuário e email para identificar os commits que faremos mais adiante:
-- inserindo seu nome
+- Inserir seu nome
 ```
 git config --global user.name "<seu_nome>"
 ```
-- inserindo seu email
+- Inserir seu email
 ```
 git config --global user.email "<seu_email>"
 ```
@@ -75,7 +75,7 @@ git config --global user.email "<seu_email>"
 ```
 git checkout <nome_da_branch>
 ```
-- ou 
+- Ou 
 ```
 git switch <nome_da_branch>
 ```
@@ -88,7 +88,7 @@ git branch <nome_da_branch>
 ```
 git checkout -b <nome_da_branch>
 ```
-- ou 
+- Ou 
 ```
 git switch -c <nome_da_branch>
 ```
@@ -97,11 +97,11 @@ git switch -c <nome_da_branch>
 git branch
 ```
 
-### 5. Depois de estar na branch certa podemos codar ou refatorar o código. Para salvar as alterações devemos adicionar os arquivos ao "staging" com:
+### 5. Depois de estar na branch certa podemos codar ou refatorar o código. Para preparar as alterações para o próximo commit devemos adicionar os arquivos ao "staging" com:
 ```
 git add <nome_do_arquivo>
 ```
-- ou para adicionar todos os arquivos que foram modificados
+- Ou para adicionar todos os arquivos que foram modificados
 ```
 git add .
 ```
@@ -110,11 +110,11 @@ git add .
 ```
 git commit -m "<mensagem do commit>"
 ```
-- para corrigir a mensagem do último commit em caso de erro
+- Para corrigir a mensagem do último commit em caso de erro
 ```
 git commit --amend -m "<nova mensagem do commit>"
 ```
-- caso queira fazer uma descrição longa para o commit use:
+- Caso queira fazer uma descrição longa para o commit use:
 ```
 git commit -m "<mensagem curta>" -m "<descrição longa>"
 ```
@@ -128,11 +128,15 @@ git push origin <nome da branch>
 ```
 git pull origin <nome_da_branch>
 ```
-- caso queira puxar sem mesclar as mudanças com o que vc tem na sua máquina utilize:
+- Caso queira puxar **sem** mesclar as mudanças com o que você tem na sua máquina utilize:
 ```
 git fetch
 ```
-
+- Para remover as referências na sua máquina a branches que já foram deletadas no remoto:
+```
+git fetch origin --prune
+```
+ 
 ### 9. Para deletar o último commit:
 ```
 git reset --soft HEAD~1
@@ -149,10 +153,26 @@ git status
 ```
 - Dica: é melhor de ver essas diferenças pela própria interface do Vs Códigos
 
-### 11. Para ver as diferenças não commitadas:
+- O git status também é muito útil para ver em qual branch você está trabalhando (ex.: On branch main) e se ela está atualizada em relação ao repositório remoto (como "Your branch is up to date with 'origin/main'")
+
+### 11. Para exibir as mudanças que ainda não foram preparadas para o commit:
 ```
 git diff
 ```
+- Para mostrar as diferenças entre o que está na área de staging e o último commit, em outras palavras o que está preparado para o próximo commit:
+```
+git diff --staged
+```
+- Para comparar as diferenças introduzidas no último commit.
+```
+git diff HEAD^ HEAD: 
+```
+- Para comparar as diferenças entre duas branches, como git diff main develop:
+```
+git diff <branch1> <branch2>
+```
+
+- Dica: é melhor de ver essas diferenças pela própria interface do Vs Códigos
 
 ### 12. Para conferir o histórico de commits:
 ```
@@ -165,9 +185,9 @@ git merge feature/<nome_da_feature>
 ```
 ### 14. Uma opção também é o git rebase, que ao invés de fazer um merge comum, você atualiza a feature com os commits mais recentes da develop, evitando merge commits desnecessários e organizando melhor o histórico de commits, então vá para a branch feature com ```git checkout feature``` e depois:
 ```
-git rebase <nome_da_develop>
+git rebase develop
 ```
-- isso reorganiza o histórico de commits, atualizando a feature do ponto mais atualizado da branch develop
+- Isso reorganiza o histórico de commits, atualizando a feature do ponto mais atualizado da branch develop
 
 ### 15. Depois de dar merge podemos deletar a brach:
 ```
@@ -178,6 +198,11 @@ git branch -d feature/<nome_da_feature>
 git branch -D feature/<nome_da_feature>
 ```
 - Do modo acima o git não se importa se a branch já foi mesclada ou não (com o 'd' minúsculo o git não exclui sem ter feito merge, dá erro)
+
+- Para deletar a branch no repositório remoto: 
+```
+git push origin --delete <nome_da_branch>
+```
 
 ### 16. Depois de qualquer merge na branch main devemos marcar com um tag de versão com:
 ```
@@ -290,5 +315,5 @@ gh review <ID_do_PR> --approve
 ```
 - para mesclar um PR via terminal:
 ```
-gh pr merge<ID_do_PR> --squash --delet-branch
+gh pr merge<ID_do_PR> --squash --delete-branch
 ```
