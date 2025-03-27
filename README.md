@@ -238,9 +238,9 @@ Dica: Sempre comece entendendo o estado atual do repositório com git branch ou 
 
 - OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
 
-caso não tenha ficado muito claro, como funciona o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
+caso ainda possua dúvidas sobre o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
 
-## Existem duas formas de implementar o Git Flow, a primeira é utilizar os comandos básicos do Git, a outra é utilizar uma CLI que ajuda a simplificar o fluxo do Git Flow.
+### Existem duas formas de implementar o Git Flow, a primeira é utilizar os comandos básicos do Git, a outra é utilizar uma CLI (Command Line Interface) que ajuda a simplificar o fluxo do Git Flow.
 
 - Para instalar o CLI do git flow:  
     - OSX: brew install git-flow
