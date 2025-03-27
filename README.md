@@ -3,41 +3,43 @@
 ---
 
 # Sumário
-- 1.  [Clonar repositório](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit--adiciona-login-ou-adiciona-crud)
-- 2.  [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
-- 3.  [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
-- 4.  [Criar nova branch](#4-para-criar-uma-branch-nova)
-- 5.  [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
-- 6.  [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
-- 7.  [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
-- 8.  [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
-- 9.  [Deleter o último commit](#9-para-deletar-o-último-commit)
-- 10.  [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-arquivos-novos-que-não-estão-rastreados)
-- 11.  [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
-- 12.  [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
-- 13.  [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
-- 14.  [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature--e-depois)
-- 15.  [Deletar uma branch](#15-depois-de-dar-merge-podemos-deletar-a-brach)
-- 16.  [Marcar o commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
-- 17.  [Pull Request](#17-pull-request)
-- 18.  [Hotfix](#18-hotfix)
-- 19.  [Como funciona o gitflow](#como-funciona-o-git-flow)
+1. [Convenções](#convenções)
+2. [Comandos](#comandos)
+    1.  [Clonar repositório](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit--adiciona-login-ou-adiciona-crud)
+    2.  [Configurar usuário](#2-agora-devemos-fazer-a-configuração-do-seu-usuário-e-email-para-identificar-os-commits-que-faremos-mais-adiante)
+    3.  [Mudar de branch](#3-depois-devemos-mudar-para-a-branch-a-qual-vamos-trabalhar)
+    4.  [Criar nova branch](#4-para-criar-uma-branch-nova)
+    5.  [Adicionar arquivos ao staging](#5-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-salvar-as-alterações-devemos-adicionar-os-arquivos-ao-staging-com)
+    6.  [Fazer o commit](#6-agora-devemos-fazer-o-commit-com)
+    7.  [Subir o commit para o repositório remoto](#7-depois-de-fazer-o-commit-devemos-subir-para-o-repositório-remoto-com)
+    8.  [Puxar mudanças do repositório remoto](#8-para-puxar-possíveis-mudanças-no-repositório-remoto-utilize)
+    9.  [Deleter o último commit](#9-para-deletar-o-último-commit)
+    10.  [Conferir status dos arquivos](#10-para-conferir-o-status-dos-arquivos-o-que-está-em-stage-para-ser-commitado-os-arquivos-que-foram-modificados-arquivos-novos-que-não-estão-rastreados)
+    11.  [Ver a diferença do que foi / não foi commitado](#11-para-ver-as-diferenças-não-commitadas)
+    12.  [Ver o histórico de commits](#12-para-conferir-o-histórico-de-commits)
+    13.  [Fazer o merge](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-vc-queira-mesclar-uma-branch-feature-a-branch-develop-vc-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
+    14.  [Atualizar a feature com git rebase](#14-uma-opção-também-é-o-git-rebase-que-ao-invés-de-fazer-um-merge-comum-você-atualiza-a-feature-com-os-commits-mais-recentes-da-develop-evitando-merge-commits-desnecessários-e-organizando-melhor-o-histórico-de-commits-então-vá-para-a-branch-feature-com-git-checkout-feature--e-depois)
+    15.  [Deletar uma branch](#15-depois-de-dar-merge-podemos-deletar-a-brach)
+    16.  [Marcar o commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
+3.  [Como funciona o gitflow](#como-funciona-o-git-flow)
+4. [Tabela comparativa comandos git X comandos da CLI git flow](#tabela-comparativa-comandos-básicos-do-git-x-comandos-do-cli)
+5. [Pull Request](#pull-request)
+
 ---
 
 # Convenções
 
 ### 1. Fazer commits com mensagens de fato descritivas, usando o tempo verbal no imperativo como: "adicionA-login" ou "corrigE-erro-no-crud" para lermos: "**esse commit** ... adiciona login ou adiciona crud"
-### 2. Proibido fazer ```git commit -m "."``` ou ```git commit -m ":)"``` ou qualquer coisa do tipo
+### 2. Proibido fazer ```git commit -m "."``` ou 'git commit -m " :pray: " ' ou qualquer coisa do tipo
 ### 3. Estaremos utilizando o git flow para ver como funciona o fluxo do git flow [clique aqui](#como-funciona-o-git-flow):
 ### 4. Evitar fazer commits gigantes
 ### 5. Evitar fazer branches gigantes (os pontos 4 e 5 são para não termos que resolver conflitos gigantes e melhorar na hora de revisão)
 ### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
-### 7. Use Pull Requests (PRs) com Inteligência.
-- Descreva o PR incluindo o propósito, o que foi feito e como testar.
-- Adicione revisores garantindo que o time revise antes do merge.
-- Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
-- Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
-
+## Convenções sobre PRs
+### 7. Descreva o PR incluindo o propósito, o que foi feito e como testar.
+### 8. Adicione revisores garantindo que o time revise antes do merge.
+### 9. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+### 10. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
 
 ---
 
@@ -208,7 +210,59 @@ git tag -d <nome_da_tag>
 ```
 git push origin --delete <nome_da_tag>
 ```
-### 17. Pull Request
+
+---
+
+# Como funciona o git flow
+![imagem do git flow](./images/WhatsApp%20Image%202025-03-22%20at%2018.51.11.jpeg)
+
+Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho em equipe. As principais branches são:
+
+- main: Contém o código estável e pronto para produção.
+
+- develop: Integra funcionalidades em desenvolvimento, ainda não prontas para produção.
+
+- feature/*: Branches temporárias para desenvolver novas funcionalidades (ex.: feature/nova-funcionalidade).
+
+- hotfix/*: Branches para corrigir bugs urgentes em produção (ex.: hotfix/corrigir-bug-login).
+
+- release/*: Branches para preparar uma nova versão para produção (ex.: release/v1.0.0).
+
+Dica: Sempre comece entendendo o estado atual do repositório com git branch ou git log.
+
+- A **branch main e a branch develop** são as únicas branches permanentes
+- teremos uma **branch feature** (que sempre sai da branch develop) para cada nova funcionalidade do nosso projeto, depois são mergeadas de volta a branch develop
+- as **branches release** (não pode haver mais de uma branch desse tipo simultaneamente) saem da branch develop e servem para testar e corrigir uma nova versão a ser lançada, quando finalizar esse processo ela será mergeada tanto na main, gerando uma nova tag de versão, quanto na develop
+- por último as **branches hotfix**, que servem para consertar erros críticos em produção, saem da branch main e são mergeados tanto na main gerando uma nova tag ([comandos para gerar tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)) quanto na develop.
+
+- OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
+
+caso não tenha ficado muito claro, como funciona o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
+
+## Existem duas formas de implementar o Git Flow, a primeira é utilizar os comandos básicos do Git, a outra é utilizar uma CLI que ajuda a simplificar o fluxo do Git Flow.
+
+- Para instalar o CLI do git flow:  
+    - OSX: brew install git-flow
+    - Linux: apt install git-flow
+    - Windows: https://git-scm.com/download/win (Já está incluído no Git a partir da versão 2.5.3.)
+
+# Tabela comparativa comandos básicos do git x comandos do CLI
+
+| **Operação** | **Forma tradicional** | **Comandos do CLI** |
+| - | - | - |
+| Criar uma Branch Develop a partir da Branch Master | git checkout -b develop | git flow init |
+| Criar uma feature | git checkout develop<br>e<br>git checkout -b name-feature | git flow feature start <nome_da_feature>  |
+| Mergear uma feature | git checkout develop<br>e<br>git merge <nome_da_feature> | git flow feature finish <nome_da_feature> |
+| Criar uma release | git checkout develop<br>e<br>git checkout -b release/1.0.0 | git flow release start 1.0.0 |
+| Mergear uma release | git checkout main<br>e<br>git merge release/1.0.0 <br>e<br>git checkout develop<br>e<br>git merge release/1.0.0<br>e<br>git tag 1.0.0 | git flow release finish 1.0.0 |
+| Criar um hotfix | git checkout main<br>e<br>git checkout -b hotfix/<nome_do_hotfix> | git flow hotfix start <nome_do_hotfix> |
+| Mergear um hotfix | git checkout main<br>e<br>git merge hotfix/1.0.0<br>e<br>git checkout develop<br>e<br>git merge hotfix/1.0.0<br>git tag 1.0.0 | git flow hotfix finish 1.0.0 |
+
+- Podemos ver o quão útil é a CLI do Git-flow, pois simplifica o processo e nos ajuda a não cometer erros, principalmente lidando com as releases e os hotfixes. 
+
+---
+
+# Pull Request
 
 - Um Pull Request (PR) é uma proposta de integração de código. Ele serve como um checkpoint para revisão e aprovação antes do merge, garantindo qualidade e alinhamento com o projeto.
   
@@ -235,68 +289,3 @@ gh review <ID_do_PR> --approve
 ```
 gh pr merge<ID_do_PR> --squash --delet-branch
 ```
-### 18. Hotfix
-
-- O Hotfix será usado para corrigir erros críticos encontrados em produção. Ele permite resolver rapidamente um problema sem interromper o fluxo de desenvolvimento.
-
-- Para iniciar uma hotfix devemos criar a branch que sairá da main:
-
-- Ir para a branch main
-```
-git checkout main
-```
-- Trazer a main para o repositório local
-```
-git pull origin main
-```
-- E então criamos a hotfix ja entrando nela
-```
-git checkout -b hotfix/<descrição_do_erro>
-```
-- Com o erro / falha corrigido, subimos as alteraçõs e depois devemos aplicar a correção diretamente na main e na develop.
-- Nesse processo, todo merge feito deve ser marcado com tag (processo passado anteriormente na sessão 16 [marcar commit com tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com))
-
-- OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não há a necessidade de utilizarmos a branch hotfix.
----
-
----
-
-# Como funciona o git flow
-![imagem do git flow](./images/WhatsApp%20Image%202025-03-22%20at%2018.51.11.jpeg)
-
-Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho em equipe. As principais branches são:
-
-- main: Contém o código estável e pronto para produção.
-
-- develop: Integra funcionalidades em desenvolvimento, ainda não prontas para produção.
-
-- feature/*: Branches temporárias para desenvolver novas funcionalidades (ex.: feature/nova-funcionalidade).
-
-- hotfix/*: Branches para corrigir bugs urgentes em produção (ex.: hotfix/corrigir-bug-login).
-
-- release/*: Branches para preparar uma nova versão para produção (ex.: release/v1.0.0).
-
-Dica: Sempre comece entendendo o estado atual do repositório com git branch ou git log.
-
-A **branch main e a branch develop** são as únicas branches permanentes, teremos uma **branch feature** (que sempre sai da branch develop) para cada nova funcionalidade do nosso projeto, depois são mergeadas de volta a branch develop, as **branches release** (não pode haver mais de uma branch desse tipo simultaneamente) saem da branch develop e servem para testar e corrigir uma nova versão a ser lançada, quando finalizar esse processo ela será mergeada tanto na main, gerando uma nova tag de versão, quanto na develop e por último as branches hotfix saem da branch main e servem para consertar erros críticos em produção, **não utilizaremos as branches hotfix** pois não teremos software em produção com cliente que precisa de correções com urgência na escola de TI
-
-caso não tenha ficado muito claro, veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
-
-## Existem duas formas de implementar o Git Flow, a primeira é utilizar os comandos básicos do Git, a outra é utilizar uma CLI que ajuda a simplificar o fluxo do Git Flow.
-
-- Para instalar o CLI do git flow:  
-    - OSX: brew install git-flow
-    - Linux: apt install git-flow
-    - Windows: https://git-scm.com/download/win (Já está incluído no Git a partir da versão 2.5.3.)
-
-# Tabela comparativa comandos básicos do git x comandos do CLI
-
-| **Operação** | **Forma tradicional** | **Comandos do CLI** |
-| - | - | - |
-| Criar uma Branch Develop a partir da Branch Master | git checkout -b develop | git flow init |
-| Criar uma feature | git checkout develop<br>e<br>git checkout -b name-feature | git flow feature start <nome_da_feature>  |
-| Mergear uma feature | git checkout develop<br>e<br>git merge <nome_da_feature> | git flow feature finish <nome_da_feature> |
-| Criar uma release | git checkout develop<br>e<br>git checkout -b release/1.0.0 | git flow release start 1.0.0 |
-| Mergear uma release | git checkout master<br>e<br>git merge release/1.0.0 <br>e<br>git checkout develop<br>e<br>git merge release/1.0.0<br>e<br>git tag 1.0.0 | git flow release finish 1.0.0 |
-
-- Podemos ver o quão útil é a CLI do Git-flow, pois simplifica o processo e nos ajuda a não cometer erros, principalmente lidando com as releases e os hotfixes (que os comandos são iguais aos da release). 
