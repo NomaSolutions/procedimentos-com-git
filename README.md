@@ -247,6 +247,8 @@ caso não tenha ficado muito claro, como funciona o gitFlow veja o [artigo da al
     - Linux: apt install git-flow
     - Windows: https://git-scm.com/download/win (Já está incluído no Git a partir da versão 2.5.3.)
 
+---
+
 # Tabela comparativa comandos básicos do git x comandos do CLI
 
 | **Operação** | **Forma tradicional** | **Comandos do CLI** |
