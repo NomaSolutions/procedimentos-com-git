@@ -273,19 +273,20 @@ OBS: **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a pr
 ---
 
 # Como funciona o git flow
-![imagem do git flow](./images/Git-flow.jpeg)
 
 Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho em equipe. As principais branches são:
 
-- main: Contém o código estável e pronto para produção.
+- **main/master**: Contém o código estável e pronto para produção.
 
-- develop: Integra funcionalidades em desenvolvimento, ainda não prontas para produção.
+- **develop**: Integra funcionalidades em desenvolvimento, ainda não prontas para produção.
 
-- feature/*: Branches temporárias para desenvolver novas funcionalidades (ex.: feature/nova-funcionalidade).
+- **feature/***: Branches temporárias para desenvolver novas funcionalidades (ex.: feature/nova-funcionalidade).
 
-- hotfix/*: Branches para corrigir bugs urgentes em produção (ex.: hotfix/corrigir-bug-login).
+- **hotfix/***: Branches para corrigir bugs urgentes em produção (ex.: hotfix/corrigir-bug-login).
 
-- release/*: Branches para preparar uma nova versão para produção (ex.: release/v1.0.0).
+- **release/***: Branches para preparar uma nova versão para produção (ex.: release/v1.0.0).
+
+![imagem do git flow](./images/Git-flow.jpeg)
 
 Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#4-para-criar-uma-nova-branch) ou [git log](#12-para-conferir-o-histórico-de-commits).
 
@@ -335,7 +336,7 @@ No fluxo GitFlow, Pull Requests (PRs) são utilizados para integrar branches com
 
 ## Passo a passo para criar e gerenciar uma PR
 
-1. Certifique-se de que sua branch está atualizada
+**1. Certifique-se de que sua branch está atualizada**
 Antes de abrir o PR, garanta que sua branch (ex.: feature/<nome_da_feature>) esteja sincronizada com as últimas alterações da branch develop.
 
 Para isso, execute os seguintes comandos localmente no terminal: ```git checkout feature/<nome_da_feature>``` e ```git merge develop```
@@ -344,23 +345,23 @@ Se houver conflitos, resolva-os manualmente, faça o commit das alterações e c
 
 Nota: Prefira git merge em vez de git rebase para evitar reescrever o histórico, especialmente se a branch for compartilhada.
 
-2. Envie sua branch para o repositório remoto
+**2. Envie sua branch para o repositório remoto**
 Após atualizar a branch localmente, envie-a para o GitHub: ```git push origin feature/<nome_da_feature>```
 
-3. Acesse o repositório no GitHub
+**3. Acesse o repositório no GitHub**
 Abra o navegador e vá até o repositório no website do GitHub onde sua branch foi enviada.
 
-4. Inicie o processo de criação do Pull Request
+**4. Inicie o processo de criação do Pull Request**
 Na página principal do repositório, clique na aba "Pull requests". Clique no botão verde "New pull request".
 
-5. Configure as branches do Pull Request
+**5. Configure as branches do Pull Request**
 No campo "base", selecione develop (a branch na qual você quer mesclar suas alterações).
 
 No campo "compare", selecione feature/<nome_da_feature> (a branch com suas alterações).
 
 O GitHub exibirá as diferenças entre as duas branches para revisão.
 
-6. Preencha os detalhes do Pull Request
+**6. Preencha os detalhes do Pull Request**
 Adicione um título claro e descritivo (ex.: "Adicionar funcionalidade X ao sistema").
 
 No campo de descrição, inclua informações úteis como:
@@ -372,12 +373,12 @@ Instruções específicas para revisores.
 
 Opcionalmente, adicione revisores, labels ou milestones no lado direito da tela.
 
-7. Crie o Pull Request
+**7. Crie o Pull Request**
 Revise as alterações exibidas na seção "Files changed" para garantir que tudo está correto.
 
 Clique no botão verde "Create pull request" para abrir o PR oficialmente.
 
-8. Monitore revisões e responda a feedbacks
+**8. Monitore revisões e responda a feedbacks**
 Após abrir o PR, outros desenvolvedores podem revisar seu código e deixar comentários ou sugestões.
 
 Se forem solicitadas alterações:
@@ -387,12 +388,12 @@ Commit e envie as mudanças com git push origin feature/<nome_da_feature>.
 
 As atualizações aparecerão automaticamente no PR.
 
-9. Mantenha a branch atualizada
+**9. Mantenha a branch atualizada**
 Se a branch develop receber novas alterações enquanto seu PR estiver em revisão, atualize sua branch novamente com git merge develop e envie as mudanças para o remoto.
 
 Caso surjam conflitos, o GitHub indicará isso no PR, e você poderá resolvê-los localmente ou diretamente no website, siga as instruções exibidas na interface (caso os conflitos sejam muito extensos você terá que resolver localmente).
 
-10. Aprovação e fusão do Pull Request
+**10. Aprovação e fusão do Pull Request**
 Após a aprovação dos revisores, o PR estará pronto para ser mesclado.
 
 Na página do PR, clique em "Merge pull request" (se você tiver permissão) e escolha o método de fusão:
@@ -402,7 +403,7 @@ Squash and merge: Combina todos os commits em um único commit, ideal para um hi
 
 Confirme a fusão clicando em "Confirm merge".
 
-11. Delete a branch (opcional)
+**11. Delete a branch**
 Após a fusão, o GitHub oferecerá a opção de deletar a branch feature/<nome_da_feature> no repositório remoto. Clique em "Delete branch" para manter o repositório organizado.
 
 Localmente, você pode deletar a branch com: ```git branch -d feature/<nome_da_feature>```
