@@ -48,6 +48,7 @@ Um título acima de 72 caracteres já é considerado longo. Após esse ponto, mu
 ### 10. Adicione revisores garantindo que o time revise antes do merge.
 ### 11. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
 ### 12. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 13. Sempre forneça descrições detalhadas no PR e responda prontamente aos feedbacks para agilizar o processo de revisão.
 
 ---
 
@@ -295,7 +296,7 @@ Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#
 
 #### OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
 
-- No caso de identificar bugs, ter a necessidade de refatorar código ou uma feature que foi mergeada incompleta, devemos ou [reverter o merge](#14caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-no-pull-request-você-pode-reverter-o-merge-para-remover-os-commits-problemáticos) ou [criar uma nova branch](#4-para-criar-uma-nova-branch) como "fix/nome_da_feature", "refactor/nome_da_refatoracao", **Nunca fazer commits diretamente na develop, muito menos na main**
+- No caso de identificar bugs, ter a necessidade de refatorar código ou de uma feature que foi mergeada incompleta, devemos ou [reverter o merge](#14caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-no-pull-request-você-pode-reverter-o-merge-para-remover-os-commits-problemáticos) ou **proceder igual fazemos com as branches feature**, [criando uma nova branch](#4-para-criar-uma-nova-branch) como "fix/nome_da_feature", "refactor/nome_da_refatoracao", **nunca fazer commits diretamente na develop, muito menos na main**
 
 caso ainda possua dúvidas sobre o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
 
@@ -330,24 +331,80 @@ caso ainda possua dúvidas sobre o gitFlow veja o [artigo da alura](https://www.
   
 ![fluxograma do pull request](./images/Fluxograma-Pull-Request.jpeg)
 
-No fluxo GitFlow, PRs são usados para integrar branches feature, hotfix ou release na develop ou main, permitindo discussões, revisões e resolução de conflitos antes da fusão
+No fluxo GitFlow, Pull Requests (PRs) são utilizados para integrar branches como feature, hotfix ou release nas branches develop ou main. Esse processo permite discussões, revisões de código e resolução de conflitos antes da fusão.
 
-- Após finalizar suas alterações e enviar sua brach para o repositório remoto, o próximo passo é abrir um Pull Request (PR) para que o código possa ser enviado e mesclado
+## Passo a passo para criar e gerenciar uma PR
 
-- certifique que a sua branch está atualizada com a develop utilizando ```git rebase develop``` e então crie o pull request com:
+1. Certifique-se de que sua branch está atualizada
+Antes de abrir o PR, garanta que sua branch (ex.: feature/<nome_da_feature>) esteja sincronizada com as últimas alterações da branch develop.
 
-```
-gh pr create --base develop --head feature/<nome da feature> --title "Título do PR" --body "Descrição co PR"
-```
-- para listar os PR abertos:
-```
-gh pr list
-```
-- para aprovar um PR:
-```
-gh review <ID_do_PR> --approve
-```
-- para mesclar um PR via terminal:
-```
-gh pr merge<ID_do_PR> --squash --delete-branch
-```
+Para isso, execute os seguintes comandos localmente no terminal: ```git checkout feature/<nome_da_feature>``` e ```git merge develop```
+
+Se houver conflitos, resolva-os manualmente, faça o commit das alterações e confirme que tudo está funcionando.
+
+Nota: Prefira git merge em vez de git rebase para evitar reescrever o histórico, especialmente se a branch for compartilhada.
+
+2. Envie sua branch para o repositório remoto
+Após atualizar a branch localmente, envie-a para o GitHub: ```git push origin feature/<nome_da_feature>```
+
+3. Acesse o repositório no GitHub
+Abra o navegador e vá até o repositório no website do GitHub onde sua branch foi enviada.
+
+4. Inicie o processo de criação do Pull Request
+Na página principal do repositório, clique na aba "Pull requests". Clique no botão verde "New pull request".
+
+5. Configure as branches do Pull Request
+No campo "base", selecione develop (a branch na qual você quer mesclar suas alterações).
+
+No campo "compare", selecione feature/<nome_da_feature> (a branch com suas alterações).
+
+O GitHub exibirá as diferenças entre as duas branches para revisão.
+
+6. Preencha os detalhes do Pull Request
+Adicione um título claro e descritivo (ex.: "Adicionar funcionalidade X ao sistema").
+
+No campo de descrição, inclua informações úteis como:
+O objetivo das alterações.
+
+Links para issues relacionadas, se houver.
+
+Instruções específicas para revisores.
+
+Opcionalmente, adicione revisores, labels ou milestones no lado direito da tela.
+
+7. Crie o Pull Request
+Revise as alterações exibidas na seção "Files changed" para garantir que tudo está correto.
+
+Clique no botão verde "Create pull request" para abrir o PR oficialmente.
+
+8. Monitore revisões e responda a feedbacks
+Após abrir o PR, outros desenvolvedores podem revisar seu código e deixar comentários ou sugestões.
+
+Se forem solicitadas alterações:
+Faça os ajustes na sua branch localmente.
+
+Commit e envie as mudanças com git push origin feature/<nome_da_feature>.
+
+As atualizações aparecerão automaticamente no PR.
+
+9. Mantenha a branch atualizada
+Se a branch develop receber novas alterações enquanto seu PR estiver em revisão, atualize sua branch novamente com git merge develop e envie as mudanças para o remoto.
+
+Caso surjam conflitos, o GitHub indicará isso no PR, e você poderá resolvê-los localmente ou diretamente no website, siga as instruções exibidas na interface (caso os conflitos sejam muito extensos você terá que resolver localmente).
+
+10. Aprovação e fusão do Pull Request
+Após a aprovação dos revisores, o PR estará pronto para ser mesclado.
+
+Na página do PR, clique em "Merge pull request" (se você tiver permissão) e escolha o método de fusão:
+Merge commit: Cria um commit de mesclagem, preservando o histórico.
+
+Squash and merge: Combina todos os commits em um único commit, ideal para um histórico mais limpo.
+
+Confirme a fusão clicando em "Confirm merge".
+
+11. Delete a branch (opcional)
+Após a fusão, o GitHub oferecerá a opção de deletar a branch feature/<nome_da_feature> no repositório remoto. Clique em "Delete branch" para manter o repositório organizado.
+
+Localmente, você pode deletar a branch com: ```git branch -d feature/<nome_da_feature>```
+
+- Para voltar ao sumário [clique aqui](#sumário)
