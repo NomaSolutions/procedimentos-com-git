@@ -267,7 +267,7 @@ git rebase develop
 ```
 na branch feature pega os commits de feature e os reaplica sobre o último commit de develop.
 
-OBS: **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a preservação do histórico de merges (com [--no-ff](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-você-queira-mesclar-uma-branch-feature-a-branch-develop-você-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)), enquanto o rebase altera o histórico, eliminando a visibilidade das branches separadas. Isso pode dificultar a colaboração em equipes, pois reescrever commits já compartilhados (ex.: em um repositório remoto) causa conflitos para outros desenvolvedores. O Git Flow valoriza a clareza do fluxo em vez de um histórico linear.
+OBS: **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a preservação do histórico de merges (através do [--no-ff](#13-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-você-queira-mesclar-uma-branch-feature-a-branch-develop-você-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)), enquanto o rebase altera o histórico, eliminando a visibilidade das branches separadas. Isso pode dificultar a colaboração em equipes, pois reescrever commits já compartilhados (ex.: em um repositório remoto) causa conflitos para outros desenvolvedores. O Git Flow valoriza a clareza do fluxo em vez de um histórico linear.
 
 ---
 
