@@ -32,16 +32,22 @@
 
 ### 1. Fazer commits com mensagens de fato descritivas, usando o tempo verbal no imperativo como: "adicionA-login" ou "corrigE-erro-no-crud" para lermos: "**esse commit** ... adiciona login ou adiciona crud"
 ### 2. Proibido fazer ```git commit -m "."``` ou 'git commit -m " :pray: " ' ou qualquer coisa do tipo
-### 3. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
-### 4. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
-### 5. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
-### 6. Na nossa equipe utilizaremos o git flow, para ver como ele funciona [clique aqui](#como-funciona-o-git-flow)
-### 7. Não criar branches hotfix explicado [aqui](#obs-na-nossa-equipe-iremos-considerar-o-uso-de-um-hotfix-como-desleixo-e-falta-de-preparo-pois-estamos-desenvolvendo-algo-voltado-à-escola-de-ti-e-não-temos-usuários-utilizando-a-versão-de-produção-então-não-utilizaremos-a-branch-hotfix)
+### 3. Não criar títulos muito longos para commits, utilizar o formato "título curto + corpo detalhado" quando necessário:
+Título: O que foi feito.
+Corpo: Por que e como foi feito.
+
+Um título acima de 72 caracteres já é considerado longo. Após esse ponto, muitas ferramentas cortam a mensagem ou dificultam a visualização em logs curtos (ex.: git log --oneline). ```Adiciona validação de e-mail no formulário de cadastro para melhorar segurança``` (77 caracteres) é um título longo.
+
+### 4. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
+### 5. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
+### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
+### 7. Na nossa equipe utilizaremos o git flow, para ver como ele funciona [clique aqui](#como-funciona-o-git-flow)
+### 8. Não criar branches hotfix explicado [aqui](#obs-na-nossa-equipe-iremos-considerar-o-uso-de-um-hotfix-como-desleixo-e-falta-de-preparo-pois-estamos-desenvolvendo-algo-voltado-à-escola-de-ti-e-não-temos-usuários-utilizando-a-versão-de-produção-então-não-utilizaremos-a-branch-hotfix)
 ## Convenções sobre [Pull Requests](#pull-request)
-### 8. Descreva o PR incluindo o propósito, o que foi feito e como testar.
-### 9. Adicione revisores garantindo que o time revise antes do merge.
-### 10. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
-### 11. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 9. Descreva o PR incluindo o propósito, o que foi feito e como testar.
+### 10. Adicione revisores garantindo que o time revise antes do merge.
+### 11. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+### 12. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
 
 ---
 
@@ -110,15 +116,15 @@ git add .
 
 ### 6. Agora devemos fazer o commit com:
 ```
-git commit -m "<mensagem do commit>"
+git commit -m "<titulo_do_commit>"
 ```
 - Para corrigir a mensagem do último commit em caso de erro
 ```
-git commit --amend -m "<nova mensagem do commit>"
+git commit --amend -m "<novo titulo do commit>"
 ```
 - Caso queira fazer uma descrição longa para o commit use:
 ```
-git commit -m "<mensagem curta>" -m "<descrição longa>"
+git commit -m "<titulo_do_commit>" -m "<descricao_detalhada>"
 ```
 
 ### 7. Depois de fazer o commit devemos subir para o repositório remoto com:
