@@ -312,12 +312,13 @@ git rebase develop
 O comando acima (realizado estando na branch feature) pega os commits de feature e os reaplica sobre o último commit de develop. 
 Como se você tivesse começado a trabalhar na feature depois das últimas mudanças da develop. 
 
-OBS: O git rebase **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a preservação do histórico de merges
-(através do [--no-ff](#14-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-você-queira-mesclar-uma-branch-feature-a-branch-develop-você-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)), 
-enquanto o rebase altera o histórico, eliminando a visibilidade das branches separadas. Isso pode dificultar a colaboração em 
-equipes, pois reescrever commits já compartilhados (ex.: em um repositório remoto) causa conflitos para outros desenvolvedores. 
-O Git Flow valoriza a clareza do fluxo em vez de um histórico linear. O git rebase até seria aceitável caso esteja trabalhando 
-sozinho em uma branch feature "pequena", mas caso a branch seja compartilhada é melhor não fazer.
+OBS: O git rebase **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a 
+preservação do histórico de merges, enquanto o rebase altera o histórico, eliminando a 
+visibilidade das branches separadas. Isso pode dificultar a colaboração em equipes, pois 
+reescrever commits já compartilhados (ex.: em um repositório remoto) causa conflitos para outros 
+desenvolvedores. O Git Flow valoriza a clareza do fluxo em vez de um histórico linear. O git 
+rebase até seria aceitável caso esteja trabalhando sozinho em uma branch feature "pequena", mas 
+caso a branch seja compartilhada é melhor não fazer.
 
 ### 21. Git stash para salvar alterações sem fazer um commit
 
@@ -389,16 +390,19 @@ Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho 
 
 ![imagem do git flow](./images/Git-flow.jpeg)
 
-Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#4-para-criar-uma-nova-branch) ou [git log](#12-para-conferir-o-histórico-de-commits).
+Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#3-então-conferimos-as-branches-existentes) e [git log](#15-para-conferir-o-histórico-de-commits).
 
 - A **branch main e a branch develop** são as únicas branches permanentes
 - teremos uma **branch feature** (que sempre sai da branch develop) para cada nova funcionalidade do nosso projeto, depois são mergeadas de volta a branch develop
 - as **branches release** (não pode haver mais de uma branch desse tipo simultaneamente) saem da branch develop e servem para testar e corrigir uma nova versão a ser lançada, quando finalizar esse processo ela será mergeada tanto na main, gerando uma nova tag de versão, quanto na develop
-- por último as **branches hotfix**, que servem para consertar erros críticos em produção, saem da branch main e são mergeados tanto na main gerando uma nova tag ([comandos para gerar tag](#16-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)) quanto na develop.
+- por último as **branches hotfix**, que servem para consertar erros críticos em produção, saem da branch main e são mergeados tanto na main gerando uma nova tag ([comandos para gerar tag](#19-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)) quanto na develop.
 
 #### OBS: Na nossa equipe, iremos considerar o uso de um Hotfix como desleixo e falta de preparo, pois estamos desenvolvendo algo voltado à escola de TI e não temos usuários utilizando a versão de produção. Então não utilizaremos a branch hotfix.
 
-- No caso de identificar bugs, ter a necessidade de refatorar código ou de uma feature que foi mergeada incompleta, devemos ou [reverter o merge](#14caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-no-pull-request-você-pode-reverter-o-merge-para-remover-os-commits-problemáticos) ou **proceder igual fazemos com as branches feature**, [criando uma nova branch](#4-para-criar-uma-nova-branch) como "fix/nome_da_feature", "refactor/nome_da_refatoracao", **nunca fazer commits diretamente na develop, muito menos na main**
+- No caso de identificar bugs, ter a necessidade de refatorar código ou de uma feature que foi 
+mergeada incompleta, devemos ou [reverter o merge](#17-caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-na-pr-faltou-subir-algum-commit-você-pode-reverter-o-merge-com) 
+ou **proceder igual fazemos com as branches feature**, [criando uma nova branch](#5-caso-seja-um-repositório-novo-apenas-com-a-branch-main-devemos-criar-uma-nova-branch) 
+como "fix/nome_da_feature", "refactor/nome_da_refatoracao", **nunca fazer commits diretamente na develop, muito menos na main**
 
 caso ainda possua dúvidas sobre o gitFlow veja o [artigo da alura](https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar) à respeito
 
