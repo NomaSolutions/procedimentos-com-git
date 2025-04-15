@@ -166,10 +166,12 @@ git commit --amend -m "<novo_titulo_do_commit>"
 git push -u origin <nome_da_branch>
 ```
 
-- Nota: com esse comando, caso você esteja publicando a branch no repositório remoto pela primeira vez a flag ```-u```, que é a 
-abreviação de ```--set-upstream``` é utilizado para estabelecer uma relação de rastreamento (tracking) entre sua branch local e 
-a branch remota. Isso permite que você use os comandos ```git pull``` e ```git push``` diretamente, sem precisar especificar 
-explicitamente a branch remota e o repositório toda vez.
+Nota: com esse comando, caso você esteja publicando a branch no repositório remoto pela primeira vez 
+a flag ```-u```, que é a abreviação de ```--set-upstream``` é utilizado para estabelecer uma relação 
+de rastreamento (tracking) entre sua branch local e a branch remota. Isso permite que você use os 
+comandos ```git pull``` e ```git push``` diretamente, sem precisar especificar explicitamente a 
+branch remota e o repositório toda vez. Quando utilizamos ```git branch -r``` e depois ```git switch``` ou ```git checkout``` para baixar a branch do remoto e já mudar para ela esse rastreamento/
+tracking já é estabelecido automaticamente.
 
 ### 11. Para baixar possíveis mudanças do repositório remoto utilize:
 ```
@@ -312,7 +314,7 @@ git rebase develop
 O comando acima (realizado estando na branch feature) pega os commits de feature e os reaplica sobre o último commit de develop. 
 Como se você tivesse começado a trabalhar na feature depois das últimas mudanças da develop. 
 
-OBS: O git rebase **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a 
+- OBS: O git rebase **Não** é usado no Git Flow: O Git Flow prioriza a rastreabilidade e a 
 preservação do histórico de merges, enquanto o rebase altera o histórico, eliminando a 
 visibilidade das branches separadas. Isso pode dificultar a colaboração em equipes, pois 
 reescrever commits já compartilhados (ex.: em um repositório remoto) causa conflitos para outros 
@@ -390,7 +392,7 @@ Gitflow é uma estratégia de branching (ramificação) que organiza o trabalho 
 
 ![imagem do git flow](./images/Git-flow.jpeg)
 
-Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#3-então-conferimos-as-branches-existentes) e [git log](#15-para-conferir-o-histórico-de-commits).
+- Dica: Sempre comece entendendo o estado atual do repositório com [git branch](#3-então-conferimos-as-branches-existentes) e [git log](#15-para-conferir-o-histórico-de-commits).
 
 - A **branch main e a branch develop** são as únicas branches permanentes
 - teremos uma **branch feature** (que sempre sai da branch develop) para cada nova funcionalidade do nosso projeto, depois são mergeadas de volta a branch develop
