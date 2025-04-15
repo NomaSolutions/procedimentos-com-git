@@ -54,12 +54,13 @@ ja é considerado um título longo.
 ### 7. Na nossa equipe utilizaremos o git flow, para ver como ele funciona [clique aqui](#como-funciona-o-git-flow)
 ### 8. Não criar branches hotfix explicado [aqui](#obs-na-nossa-equipe-iremos-considerar-o-uso-de-um-hotfix-como-desleixo-e-falta-de-preparo-pois-estamos-desenvolvendo-algo-voltado-à-escola-de-ti-e-não-temos-usuários-utilizando-a-versão-de-produção-então-não-utilizaremos-a-branch-hotfix)
 ## Convenções sobre [Pull Requests](#pull-requests)
-### 9. Fazer títulos para as Pull Requests seguindo o mesmo padrão da convenção dos commits ([item 1](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit-adiciona-login-ou-esse-commit-corrige-erro-no-crud))
-### 10. Descreva o PR incluindo o propósito, o que foi feito e como testar.
-### 11. Adicione revisores garantindo que o time revise antes do merge.
-### 12. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
-### 13. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
-### 14. Sempre forneça descrições detalhadas no PR e responda prontamente aos feedbacks para agilizar o processo de revisão.
+### 9. Só abrir uma PR quando achar que a branch está concluída e de fato pode ser mergeada
+### 10. Fazer títulos para as Pull Requests seguindo o mesmo padrão da convenção dos commits ([item 1](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit-adiciona-login-ou-esse-commit-corrige-erro-no-crud))
+### 11. Descreva o PR incluindo o propósito, o que foi feito e como testar.
+### 12. Adicione revisores garantindo que o time revise antes do merge.
+### 13. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+### 14. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 15. Sempre forneça descrições detalhadas no PR e responda prontamente aos feedbacks para agilizar o processo de revisão.
 
 ---
 
@@ -427,19 +428,21 @@ No fluxo GitFlow, Pull Requests (PRs) são utilizados para integrar branches com
 **1. Certifique-se de que sua branch está atualizada (Opcional*)**
 Antes de abrir o PR, garanta que sua branch (ex.: feature/<nome_da_feature>) esteja sincronizada com as últimas alterações da branch develop.
 
-Para isso, execute os seguintes comandos localmente no terminal: ```git checkout feature/<nome_da_feature>``` e ```git merge develop```
+Para isso, execute os seguintes comandos localmente no terminal: ```git switch develop```, ```git pull```, ```git switch feature/<nome_da_feature>``` e ```git merge develop``` (não se preocupe, 
+fazer merge da develop na sua branch feature não fará você perder os commits feitos na feature)
 
 Se houver conflitos, resolva-os manualmente, faça o commit das alterações e confirme que tudo está funcionando.
 
 Nota: Prefira git merge em vez de git rebase para evitar reescrever o histórico, especialmente se a branch for compartilhada.
 
-- * Esse passo é mais importante caso haja alterações ou correções importantes para a sua branch na develop e a feature ainda
-não está pronta para ser mergeada, ou a feature é muito grande e está levando muito tempo, de modo que há vários commits de 
-diferença acumulados na develop. Como realizar esse passo pode causar conflitos, você estará adiantando a resolução desses 
-conflitos que surgiriam apenas ao fazer o merge da feature.
+- * Esse passo é mais importante caso haja alterações ou correções importantes para a sua branch na 
+develop e a feature ainda não está pronta para ser mergeada, ou a feature é muito grande e está 
+levando muito tempo, de modo que há vários commits de diferença acumulados na develop. Como realizar 
+esse passo pode causar conflitos, você estará adiantando a resolução desses conflitos que surgiriam 
+apenas ao fazer o merge da feature.
 
 **2. Envie sua branch para o repositório remoto**
-Após atualizar a branch localmente, envie-a para o GitHub: ```git push origin feature/<nome_da_feature>```
+Após atualizar a branch localmente, envie-a para o GitHub: ```git push -u origin feature/<nome_da_feature>```
 
 **3. Acesse o repositório no GitHub**
 Abra o navegador e vá até o repositório no website do GitHub onde sua branch foi enviada.
@@ -480,7 +483,7 @@ Após abrir o PR, outros desenvolvedores podem revisar seu código e deixar come
 Se forem solicitadas alterações:
 Faça os ajustes na sua branch localmente.
 
-Commit e envie as mudanças com ```git push origin feature/<nome_da_feature>```.
+Commit e envie as mudanças com ```git push```.
 
 **Atualizações com os novos commits aparecerão automaticamente no PR**.
 
