@@ -13,7 +13,7 @@
     - [Renomear branch](#6-caso-tenha-criado-uma-branch-com-o-nome-errado-podemos-renomear-a-branch-em-que-estamos-com)
     - [Adicionar arquivos ao staging](#7-depois-de-estar-na-branch-certa-podemos-codar-ou-refatorar-o-código-para-preparar-as-alterações-para-o-próximo-commit-devemos-adicionar-os-arquivos-ao-staging-com)
     - [Fazer commit](#8-agora-devemos-fazer-o-commit-com)
-    - [Renomear commit (se necessário)](#9-para-corrigirrenomear-a-mensagem-do-último-commit-em-caso-de-erro)
+    - [Renomear commit](#9-para-corrigirrenomear-a-mensagem-do-último-commit-em-caso-de-erro)
     - [Subir commits/branch para o repositório remoto (upload)](#10-depois-de-fazer-oos-commits-desejados-podemos-subir-para-o-repositório-remoto-com)
     - [Baixar mudanças do repositório remoto (download)](#11-para-baixar-possíveis-mudanças-do-repositório-remoto-utilize)
     - [Deletar o último commit](#12-para-deletar-o-último-commit)
@@ -21,7 +21,7 @@
     - [Ver diferenças (git diff)](#14-para-exibir-as-mudanças-que-ainda-não-foram-preparadas-para-o-commit)
     - [Ver o histórico de commits](#15-para-conferir-o-histórico-de-commits)
     - [Fazer merge](#16-depois-de-concluir-todas-as-alterações-na-branch-voce-deve-realizar-um-merge-primeiro-vá-para-a-branch-que-irá-receber-as-alterações-ex-caso-você-queira-mesclar-uma-branch-feature-a-branch-develop-você-deve-estar-na-branch-develop-com-git-checkout-develop-e-depois)
-    - [Revertendo o merge (se necessário)](#17-caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-na-pr-faltou-subir-algum-commit-você-pode-reverter-o-merge-com)
+    - [Revertendo o merge](#17-caso-o-merge-da-feature-na-develop-tenha-sido-um-erro-ex-revisões-insuficientes-na-pr-faltou-subir-algum-commit-você-pode-reverter-o-merge-com)
     - [Deletar uma branch](#18-depois-de-dar-merge-podemos-deletar-a-brach)
     - [Git tag para definir versões](#19-depois-de-qualquer-merge-na-branch-main-devemos-marcar-com-um-tag-de-versão-com)
     - [Git Rebase](#20-o-git-rebase)
@@ -37,25 +37,29 @@
 
 # Convenções
 
-### 1. Fazer commits com mensagens de fato descritivas, usando o tempo verbal no imperativo como: "adicionA-login" ou "corrigE-erro-no-crud" para lermos: "**esse commit** ... adiciona login ou adiciona crud"
+### 1. Fazer commits com mensagens de fato descritivas, usando o ```tempo verbal no imperativo``` como: "adicionA login" ou "corrigE erro no crud" ```para lermos```: "```esse commit adiciona login```" ou "```esse commit corrige erro no crud```"
 ### 2. Proibido fazer ```git commit -m "."``` ou 'git commit -m " :pray: " ' ou qualquer coisa do tipo
 ### 3. Não criar títulos muito longos para commits, utilizar o formato "título curto + corpo detalhado" quando necessário:
 Título: O que foi feito.
 Corpo: Por que e como foi feito.
 
-Um título acima de 72 caracteres já é considerado longo. Após esse ponto, muitas ferramentas cortam a mensagem ou dificultam a visualização em logs curtos (ex.: git log --oneline). ```Adiciona validação de e-mail no formulário de cadastro para melhorar segurança``` (77 caracteres) é um título longo.
+Um título acima de 72 caracteres já é considerado longo. Após esse ponto, muitas ferramentas cortam 
+a mensagem ou dificultam a visualização em logs curtos (ex.: git log --oneline). O título: 
+```Adiciona validação de email no formulário de cadastro para melhorar segurança``` (77 caracteres) 
+ja é considerado um título longo.
 
 ### 4. Evitar fazer commits gigantes: Facilita a revisão e reduz conflitos.
 ### 5. Evitar fazer branches gigantes: Facilita a revisão e reduz conflitos.
-### 6. Criar branches com o nome no infinitivo como: "adicionAR-login" ou "corrigIR-erro-no-crud"
+### 6. Criar branches com o prefixo ```fix/``` ou ```feature/``` seguido de um nome no ```tempo verbal infinitivo```: "adicionAR login" "corrigIR crud" de acordo com o propósito da branch
 ### 7. Na nossa equipe utilizaremos o git flow, para ver como ele funciona [clique aqui](#como-funciona-o-git-flow)
 ### 8. Não criar branches hotfix explicado [aqui](#obs-na-nossa-equipe-iremos-considerar-o-uso-de-um-hotfix-como-desleixo-e-falta-de-preparo-pois-estamos-desenvolvendo-algo-voltado-à-escola-de-ti-e-não-temos-usuários-utilizando-a-versão-de-produção-então-não-utilizaremos-a-branch-hotfix)
 ## Convenções sobre [Pull Requests](#pull-requests)
-### 9. Descreva o PR incluindo o propósito, o que foi feito e como testar.
-### 10. Adicione revisores garantindo que o time revise antes do merge.
-### 11. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
-### 12. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
-### 13. Sempre forneça descrições detalhadas no PR e responda prontamente aos feedbacks para agilizar o processo de revisão.
+### 9. Fazer títulos para as Pull Requests seguindo o mesmo padrão da convenção dos commits ([item 1](#1-fazer-commits-com-mensagens-de-fato-descritivas-usando-o-tempo-verbal-no-imperativo-como-adiciona-login-ou-corrige-erro-no-crud-para-lermos-esse-commit-adiciona-login-ou-esse-commit-corrige-erro-no-crud))
+### 10. Descreva o PR incluindo o propósito, o que foi feito e como testar.
+### 11. Adicione revisores garantindo que o time revise antes do merge.
+### 12. Teste antes de submeter: Certifique-se de que o código compila e os testes passam.
+### 13. Mantenha PRs pequenos: Facilita a revisão e reduz conflitos.
+### 14. Sempre forneça descrições detalhadas no PR e responda prontamente aos feedbacks para agilizar o processo de revisão.
 
 ---
 
